@@ -10,8 +10,15 @@ void identifyMyself();
 int main() {
   // programmer's identification
   identifyMyself();
+  // invent Bitcoin
   CryptoCoin BTC;
+  // mint ten coins and print them out
+  for (int i = 0; i < 10; i++) {
+    BTC.mint();
+  }
   BTC.print();
+
+  return 0;
 }
 
 void identifyMyself() {

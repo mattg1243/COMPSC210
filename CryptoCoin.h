@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -7,13 +9,13 @@ class CryptoCoin {
   // the private struct that acts as a node storing
   // the id of the individual coin and a pointer to the next one
   struct Coin {
-    int id;
+    string id;
     Coin* next;
   };
   // ptr to the beginning of the list
   Coin* head;
   // tracker of how many coins in circulation, used for ID
-  static int coinCount;
+  int coinCount;
 
   public:
   // constructor setting head to nullptr
@@ -24,10 +26,12 @@ class CryptoCoin {
   void clear();
   // mint a new coin, my add function
   void mint();
+  // generate a hex id for new coins, called in the mint function
+  string generateID(); 
   // remove a particular coin from circulation, my remove function
-  void burn();
+  void burn(int id);
   // print out a list of all coins in circulation
-  void print() { cout << ".h test" << endl; }
+  void print();
 
 };
 
@@ -44,12 +48,27 @@ void CryptoCoin::clear() {
   }
 }
 
+string generateID() {
+  // create an array of possible characters to use
+  char hexChars[] = { 'A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+  // initialize a blank id
+  char id[] = { '0', 'x', '0', '0', '0', '0', '0', '0'};
+  // randomly reassign the last 6 characters
+  srand(time(0));
+  for (int i = 2; i < 8; i++) {
+    id[i] = hexChars[rand()%16];
+  }
+  // return the id string
+  string idStr(id);
+  return idStr;
+}
+
 void CryptoCoin::mint() {
   // allocate memory for the new coin
   Coin* newCoin;
   newCoin = new Coin;
   // set the ID of the coin and increment the coinCount variable
-  newCoin->id = coinCount;
+  newCoin->id = generateID();
   coinCount++;
   // set ptrs accordingly
   Coin* search = head;
@@ -61,4 +80,22 @@ void CryptoCoin::mint() {
     } else {
         head = newCoin;
     }
+}
+
+void CryptoCoin::burn(int id) {
+  
+}
+
+void CryptoCoin::print() {
+  // set a tempory search ptr
+  Coin* search = head;
+  // traverse the list and print the IDs of each coin and the coin count
+  cout << "There are currently " << coinCount << " coins in circulation.\n";
+  cout << "[ ";
+  while (search != nullptr) { 
+        if (search->next == nullptr) { cout << search->id << " "; }
+        else { cout << search->id << ", "; }
+        search = search->next;
+    }
+  cout << ']';
 }

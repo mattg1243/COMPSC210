@@ -48,7 +48,7 @@ void CryptoCoin::clear() {
   }
 }
 
-string generateID() {
+string CryptoCoin::generateID() {
   // create an array of possible characters to use
   char hexChars[] = { 'A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
   // initialize a blank id
@@ -80,10 +80,6 @@ void CryptoCoin::mint() {
     } else {
         head = newCoin;
     }
-}
-
-void CryptoCoin::burn(int id) {
-  
 }
 
 void CryptoCoin::print() {

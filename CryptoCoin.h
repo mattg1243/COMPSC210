@@ -128,10 +128,10 @@ void CryptoCoin::print() {
   Coin* search = head;
   // traverse the list and print the IDs of each coin and the coin count
   cout << "There are currently " << coinCount << " coins in circulation.\n";
-  cout << "[ ";
+  cout << "[ \n";
   while (search != nullptr) { 
-        if (search->next == nullptr) { cout << search->id << " "; }
-        else { cout << search->id << ", "; }
+        if (search->next == nullptr) { cout << "  " << search->id << '\n'; }
+        else { cout << "  " << search->id << ", \n"; }
         search = search->next;
     }
   cout << "]\n";

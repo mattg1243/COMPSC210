@@ -16,7 +16,7 @@ int main() {
   int coinsToMint = -1;
   int coinToDelete;
   while (coinsToMint < 0) {
-    cout << "How many coins would you like to mint?" << endl;
+    cout << "How many coins would you like to mint? ";
     cin >> coinsToMint;
   }
   srand(time(0));
@@ -30,7 +30,11 @@ int main() {
   BTC.burn(coinToDelete);
   BTC.print();
 
-  return 0;
+  cout << "Demonstrating deletion of head node: \n";
+  BTC.burn(0);
+  BTC.print();
+
+  cout << "All done! \n";
 }
 
 void identifyMyself() {

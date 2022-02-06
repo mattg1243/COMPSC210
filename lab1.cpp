@@ -13,7 +13,13 @@ int main() {
   // invent Bitcoin
   CryptoCoin BTC;
   // mint ten coins and print them out
-  for (int i = 0; i < 10; i++) {
+  int coinsToMint = -1;
+  while (coinsToMint < 0) {
+    cout << "How many coins would you like to mint?" << endl;
+    cin >> coinsToMint;
+  }
+  srand(time(0));
+  for (int i = 0; i < coinsToMint; i++) {
     BTC.mint();
   }
   BTC.print();

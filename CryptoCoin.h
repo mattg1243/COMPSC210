@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -52,14 +53,16 @@ string CryptoCoin::generateID() {
   // create an array of possible characters to use
   char hexChars[] = { 'A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
   // initialize a blank id
-  char id[] = { '0', 'x', '0', '0', '0', '0', '0', '0'};
+  char id[] = { '0', '0', '0', '0', '0', '0'};
   // randomly reassign the last 6 characters
-  srand(time(0));
-  for (int i = 2; i < 8; i++) {
+  for (int i = 0; i < 6; i++) {
     id[i] = hexChars[rand()%16];
   }
   // return the id string
-  string idStr(id);
+  string idStr = "0x";
+  for (int i = 0; i < 6; i++) {
+    idStr += id[i];
+  }
   return idStr;
 }
 
@@ -93,5 +96,5 @@ void CryptoCoin::print() {
         else { cout << search->id << ", "; }
         search = search->next;
     }
-  cout << ']';
+  cout << "]\n";
 }

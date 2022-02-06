@@ -30,7 +30,7 @@ class CryptoCoin {
   // generate a hex id for new coins, called in the mint function
   string generateID(); 
   // remove a particular coin from circulation, my remove function
-  void burn(int id);
+  void burn(int index);
   // print out a list of all coins in circulation
   void print();
 
@@ -85,6 +85,44 @@ void CryptoCoin::mint() {
     }
 }
 
+void CryptoCoin::burn(int index) {
+  //input validation
+  while (index < 0 || index > coinCount - 1) {
+    cout << "Please enter a valide index to delete: ";
+    cin >> index;
+  }
+  // initialize temp search ptr for traversing list
+  // and a current index tracker
+  int currentIndex = 1;
+  Coin* search = head, *searchTrailing = nullptr;
+  // handle case where head node is being deleted
+  if (index == 0) {
+      // set head node ptr to the next node
+      head = head->next;
+      // clear memory at the old head location
+      delete search;
+      return;
+  }
+  // if another node is being deleted, 
+  // go through the list until we reach the index to delete
+  search = search->next;
+  searchTrailing = head;
+  while(search != nullptr) {
+    if (currentIndex == index) {
+      // change the ptrs and free up the memory
+      searchTrailing->next = search->next;
+      delete search;
+      coinCount--;
+      return;
+    } else {
+      // otherwise, advance the ptrs and increment the index tracker
+      search = search->next;
+      searchTrailing = searchTrailing->next;
+      currentIndex++;
+    }
+  }
+}
+// 0xD0CEB4
 void CryptoCoin::print() {
   // set a tempory search ptr
   Coin* search = head;

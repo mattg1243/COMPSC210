@@ -14,6 +14,7 @@ int main() {
   CryptoCoin BTC;
   // mint ten coins and print them out
   int coinsToMint = -1;
+  int coinToDelete;
   while (coinsToMint < 0) {
     cout << "How many coins would you like to mint?" << endl;
     cin >> coinsToMint;
@@ -22,6 +23,11 @@ int main() {
   for (int i = 0; i < coinsToMint; i++) {
     BTC.mint();
   }
+  BTC.print();
+
+  cout << "What coin would you like to remove from circulation? ";
+  cin >> coinToDelete;
+  BTC.burn(coinToDelete);
   BTC.print();
 
   return 0;

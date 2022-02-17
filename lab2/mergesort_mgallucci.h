@@ -13,12 +13,9 @@ void mergeUp(int arrayToSort[], int left, int midpt, int right) {
 
   for (int i = 0; i < leftSize; i++) {
     leftArr[i] = arrayToSort[left + i];
-    cout << "leftArr[i] == " << leftArr[i] << endl;
   }
-  cout << "   ---------   \n";
   for (int j = 0; j < rightSize; j++) {
     rightArr[j] = arrayToSort[midpt + 1 + j];
-    cout << "rightArr[i] == " << rightArr[j] << endl;
   }
   // set indexes
   int leftIndex = 0, rightIndex = 0, mergedIndex = left;
@@ -67,9 +64,16 @@ void mergeSort(int arrayToSort[], int left, int right) {
   mergeUp(arrayToSort, left, midpt, right);
 }
 
-// need a printArr function to display the array after I sort it
+// show the newly sorted array
 void printArr(int arr[], int size) {
   for (int i = 0; i < size; i++) {
     cout << arr[i] << endl;
   }
+}
+
+// my ID function, putting here to keep main clearn
+void identifyMyself() {
+  cout << "Programmer: Matthew Gallucci\n";
+  cout << "Programmer's ID: 1663505\n";
+  cout << "File: " << __FILE__ << endl;
 }

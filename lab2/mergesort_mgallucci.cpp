@@ -17,8 +17,6 @@ Compiler = g++:
 
 using namespace std;
 
-void identifyMyself();
-
 int main() {
   // programmer's identification
   identifyMyself();
@@ -30,10 +28,4 @@ int main() {
   mergeSort(arr, left, right);
   cout << "Sorted Array: \n";
   printArr(arr, 10);
-}
-
-void identifyMyself() {
-  cout << "Programmer: Matthew Gallucci\n";
-  cout << "Programmer's ID: 1663505\n";
-  cout << "File: " << __FILE__ << endl;
 }

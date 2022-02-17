@@ -5,7 +5,25 @@
 using namespace std;
 
 void mergeUp(int arrayToSort[], int left, int midpt, int right) {
-  cout << "Merging up " << endl;
+  // set size of the new arrays
+  int leftSize = midpt - left + 1;
+  int rightSize = right - midpt;
+  // create the new arrays and copy the values from the given array
+  int leftArr[leftSize], rightArr[rightSize];
+
+  for (int i = 0; i < leftSize; i++) {
+    leftArr[i] = arrayToSort[i];
+    cout << "leftArr[i] == " << leftArr[i] << endl;
+  }
+  cout << "   ---------   \n";
+  for (int i = 0; i < rightSize; i++) {
+    rightArr[i] = arrayToSort[midpt + i];
+    cout << "rightArr[i] == " << rightArr[i] << endl;
+  }
+  // main while loop to execute our comparisons
+
+  // add the remaining left over values
+
 }
 
 void mergeSort(int arrayToSort[], int left, int right) {

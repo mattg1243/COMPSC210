@@ -28,6 +28,8 @@ int main() {
   // find the size of the array and in turn the left and right bounds
   int left = 0, right = sizeof(arr)/sizeof(arr[0]) - 1;
   mergeSort(arr, left, right);
+  cout << "Sorted Array: \n";
+  printArr(arr, 10);
 }
 
 void identifyMyself() {

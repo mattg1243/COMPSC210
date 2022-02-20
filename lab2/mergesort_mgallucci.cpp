@@ -37,6 +37,13 @@ int main() {
   /*
     My Summary:
 
+    Merge Sort's O(N * log N) runtime sets the bar in time complexity
+    for sorting algorithms. Another benefit to this algorithm is its reliability;
+    there is no best and worst case in terms of time complexity for this algorithm.
+    Because of its "divide and conquer" methodolgy, the original array that merge sort
+    acts upon is divided until we are left with a bunch of single element arrays. The comparison
+    and mergine always take the linear the time, but because the number of these comparisons is 
+    equal to log_2 N, we end up with an O(N * log N) runtime. 
 
   */
 }

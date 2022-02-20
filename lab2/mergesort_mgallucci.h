@@ -66,9 +66,11 @@ void mergeSort(int arrayToSort[], int left, int right) {
 
 // show the newly sorted array
 void printArr(int arr[], int size) {
-  for (int i = 0; i < size; i++) {
-    cout << arr[i] << endl;
+  cout << "[ ";
+  for (int i = 0; i < size - 1; i++) {
+    cout << arr[i] << ", ";
   }
+  cout << arr[size - 1] << " ]\n";
 }
 
 // my ID function, putting here to keep main clearn

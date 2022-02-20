@@ -22,10 +22,21 @@ int main() {
   identifyMyself();
   
   // initialize an array to be sorted
-  int arr[] = {5, 23, 1, 4, 76, 94, 43, 12, 65, 34};
+  int testScores[] = {5, 23, 1, 4, 76, 94, 43, 12, 65, 34, 89, 75, 26, 99, 72, 68, 64, 97, 86};
   // find the size of the array and in turn the left and right bounds
-  int left = 0, right = sizeof(arr)/sizeof(arr[0]) - 1;
-  mergeSort(arr, left, right);
-  cout << "Sorted Array: \n";
-  printArr(arr, 10);
+  int arrSize = sizeof(testScores) / sizeof(testScores[0]);
+  int left = 0, right = arrSize - 1;
+  // show the unsorted array of test scores
+  cout << "\nTest scores before sorting: \n";
+  printArr(testScores, arrSize);
+  // sort the test scores and display them
+  mergeSort(testScores, left, right);
+  cout << "\nTest scores after sorting: \n";
+  printArr(testScores, arrSize);
+
+  /*
+    My Summary:
+
+
+  */
 }

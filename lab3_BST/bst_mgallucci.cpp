@@ -22,17 +22,21 @@ void identifyMyself();
 int main() {
   // programmer's identification
   identifyMyself();
-  // BST implementaion
+  // given data set
+  int data[] = { 8, 4, 2, 5, 12, 29 }; 
+  // instantiate my BST
   BST b = BST();
-  b.insert(33);
-  b.insert(27);
-  b.insert(35);
-  b.insert(25);
-  b.insert(87);
+  // insert given values
+  for (int i = 0; i <= 5; i++) {
+    b.insert(data[i]);
+  }
+  // traverse and print out the nodes keys
+  b.printPreorder();
+  
 }
 
 void identifyMyself() {
   cout << "Programmer: Matthew Gallucci\n";
   cout << "Programmer's ID: 1663505\n";
-  cout << "File: " << __FILE__ << endl;
+  cout << "File: " << __FILE__ << endl << endl;
 }

@@ -17,17 +17,16 @@ class BST {
   public:
   // constructor function
   BST() { root = nullptr; };
-  // destructor function
+  // destructor function, not finished
   ~BST() { delete root; };
   // inserts a new node into the tree
   void insert(int);
+  // recursive part of the insert function
   void insertRecursive(Node*, Node*);
-  // removes a node from the tree
-  void remove(int);
-  // prints all the keys in ascending order
-  void printInOrder();
-  // finds a node in the tree if there and returns it, otherwise returns NULL
-  Node* search(int);
+  // preorder traversal and printing
+  void printPreorder();
+  // recursive part of printPreorder
+  void printRecursive(Node*);
 
 };
 
@@ -72,6 +71,23 @@ void BST::insertRecursive(Node* parent, Node* node) {
   }
 }
 
-void BST::printInOrder() {
-  cout << "Im a BST" << endl;
+void BST::printPreorder() {
+  // first, print out the rood node
+  cout << root->key << " ";
+  // then recursively traverse the left subtree
+  printRecursive(root->leftChild);
+  // and finally the right subtree
+  printRecursive(root->rightChild);
+  cout << "\n\n";
+}
+
+void BST::printRecursive(Node* node) {
+  // base case
+  if (node == nullptr) {
+    return;
+  }
+  // recursion and print
+  cout << node->key << " ";
+  printRecursive(node->leftChild);
+  printRecursive(node->rightChild);
 }
